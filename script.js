@@ -1,5 +1,4 @@
 const translateNumbers = (string) => {
-  console.log(string);
   return string
     .split("")
     .map((char) => {
@@ -25,14 +24,14 @@ const shiftString = (string) => {
     .map((char, index) => {
       if (char.toLowerCase().match(/[a-z]/i)) {
         let newCode = string.charCodeAt(index) - 3;
-        console.log(string.charCodeAt(index));
+
         if (newCode < 65) {
           const leftover = 3 - (string.charCodeAt(index) - 65);
           newCode = 91 - leftover;
         }
         if (newCode < 97 && newCode > 90) {
           const diff = string.charCodeAt(index) - 97;
-          console.log("diff", diff);
+
           const leftover = 3 - (string.charCodeAt(index) - 97);
           newCode = 123 - leftover;
         }
@@ -44,8 +43,6 @@ const shiftString = (string) => {
     })
     .join("");
 };
-
-console.log(shiftString("aAbBcC"));
 
 document.addEventListener("DOMContentLoaded", () => {
   setup();
@@ -62,8 +59,6 @@ const setup = () => {
     if (decoded) {
       const decodedContainer = document.getElementById("decodedOutput");
       decodedContainer.innerHTML = " ";
-
-      console.log(decodedContainer);
 
       const paragraph = document.createElement("p");
       paragraph.textContent = decoded;
